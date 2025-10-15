@@ -1,0 +1,32 @@
+[project]
+name = "dummy_repo_githubactions_python"
+version = "0.1.0"
+description = "A dummy Python project for GitHub Actions CI/CD demo"
+authors = [{ name = "Suhas" }]
+readme = "README.md"
+requires-python = ">=3.9"
+
+dependencies = [
+    "numpy"
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+    "pytest-cov",
+    "black",
+    "flake8",
+    "mypy"
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "--cov=src --cov-report=term-missing"
+
+[tool.black]
+line-length = 88
+target-version = ['py39']
+
+[tool.flake8]
+max-line-length = 88
+extend-ignore = ["E203"]
