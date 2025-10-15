@@ -6,7 +6,6 @@ readability, and maintainability in a production-ready manner.
 """
 
 from __future__ import annotations
-from typing import Generator, Iterable
 
 import numpy as np
 import pytest
@@ -14,6 +13,7 @@ from src.arithmetic import operations
 
 
 # === Fixtures ================================================================
+
 
 @pytest.fixture
 def sample_arrays() -> tuple[np.ndarray, np.ndarray]:
@@ -31,6 +31,7 @@ def random_array() -> np.ndarray:
 
 
 # === Tests for basic arithmetic =============================================
+
 
 def test_add_arrays(sample_arrays: tuple[np.ndarray, np.ndarray]) -> None:
     a, b = sample_arrays
@@ -58,6 +59,7 @@ def test_add_arrays_shape_mismatch(a: np.ndarray, b: np.ndarray) -> None:
 
 # === Tests for statistics and normalization ==================================
 
+
 def test_mean_of_array(random_array: np.ndarray) -> None:
     result = operations.mean_of_array(random_array)
     expected = float(np.mean(random_array))
@@ -83,6 +85,7 @@ def test_normalize_constant_array() -> None:
 
 # === Tests for generator utilities ===========================================
 
+
 def test_generate_batches() -> None:
     data = np.arange(10)
     batches = list(operations.generate_batches(data, batch_size=3))
@@ -106,6 +109,7 @@ def test_rolling_average_with_short_data() -> None:
 
 
 # === Smoke test for main() ===================================================
+
 
 def test_main_runs(monkeypatch: pytest.MonkeyPatch) -> None:
     """Ensure main() runs without exceptions."""
