@@ -77,7 +77,9 @@ def normalize_array(a: np.ndarray) -> np.ndarray:
     return (a - min_val) / (max_val - min_val)
 
 
-def generate_batches(data: np.ndarray, batch_size: int) -> Generator[np.ndarray, None, None]:
+def generate_batches(
+    data: np.ndarray, batch_size: int
+) -> Generator[np.ndarray, None, None]:
     """
     Yield data in batches using a generator pattern.
 
@@ -94,7 +96,9 @@ def generate_batches(data: np.ndarray, batch_size: int) -> Generator[np.ndarray,
         yield data[start:end]
 
 
-def rolling_average(data: Iterable[float], window_size: int) -> Generator[float, None, None]:
+def rolling_average(
+    data: Iterable[float], window_size: int
+) -> Generator[float, None, None]:
     """
     Compute a rolling average (moving average) using a generator.
 

@@ -1,17 +1,24 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
 [project]
-name = "dummy_repo_githubactions_python"
+name = "arithmetic"
 version = "0.1.0"
 description = "A dummy Python project for GitHub Actions CI/CD demo"
-authors = [{ name = "Suhas" }]
+authors = [{ name = "Suhas", email = "john.doe@example.com"}]
 readme = "README.md"
 requires-python = ">=3.11,<3.14"
-
-dependencies = [
-    "numpy~=2.3.1"
-]
+dependencies = ["numpy~=2.3.1"]
 
 [project.optional-dependencies]
+test = [
+    "pytest~=8.4.1",
+    "pytest-cov~=6.2.1",
+]
+
 dev = [
+    # Directly include deps from test and examples, plus dev-specific
     "pytest~=8.4.1",
     "pytest-cov~=6.2.1",
     "ruff~=0.6.9",
@@ -20,14 +27,8 @@ dev = [
     "pylint~=3.2.7",
 ]
 
-[tool.pytest.ini_options]
-testpaths = ["tests"]
-addopts = "--cov=src --cov-report=term-missing"
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["src*"]
 
-[tool.black]
-line-length = 88
-target-version = ['py39']
 
-[tool.flake8]
-max-line-length = 88
-extend-ignore = ["E203"]
