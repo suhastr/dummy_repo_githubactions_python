@@ -4,19 +4,20 @@ version = "0.1.0"
 description = "A dummy Python project for GitHub Actions CI/CD demo"
 authors = [{ name = "Suhas" }]
 readme = "README.md"
-requires-python = ">=3.9"
+requires-python = ">=3.11,<3.14"
 
 dependencies = [
-    "numpy"
+    "numpy~=2.3.1"
 ]
 
 [project.optional-dependencies]
 dev = [
-    "pytest",
-    "pytest-cov",
-    "black",
-    "flake8",
-    "mypy"
+    "pytest~=8.4.1",
+    "pytest-cov~=6.2.1",
+    "ruff~=0.6.9",
+    "black~=24.8.0",
+    "mypy~=1.11.2",
+    "pylint~=3.2.7",
 ]
 
 [tool.pytest.ini_options]
